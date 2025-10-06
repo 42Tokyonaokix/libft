@@ -12,7 +12,7 @@ char	**ft_split(char const *s, char c)
 
 	words_count = count_words(s, c);
 	splitted = (char **)malloc(sizeof(char *) * (words_count + 1));
-	//if (splitted == NULL)
+	if (splitted == NULL)
 		return (NULL);
 	splitted = allocate_char(s, splitted, c);
 	return (splitted);
@@ -82,20 +82,21 @@ static char	*ft_strndup(const char *str, size_t n)
 
 static void split_free(char **splitted, size_t index)
 {
-	while (index <= 0)
+	free(splitted[index]);
+	while (index > 0)
 	{
-		free(splitted[index]);
 		index--;
+		free(splitted[index]);
 	}
 	free(splitted);
 }
 
-int main(void)
-{
-	//printf("%s\n", ft_split("ACDBCDE", 'B')[0]);
-	//printf("%s\n", ft_split("ACDBCDE", 'B')[1]);
-	//printf("%p\n", ft_split("ACDBCDE", 'B')[2]);
-	//printf("%s\n", ft_split("ACDBCDE", '\0')[0]);
-	//printf("%p\n", ft_split("", 'B')[0]);
-	printf("%s\n", ft_split("ACDBCDE", 'T')[0]);
-}
+//int main(void)
+//{
+//	printf("%s\n", ft_split("ACDBCDE", 'B')[0]);
+//	printf("%s\n", ft_split("ACDBCDE", 'B')[1]);
+//	printf("%p\n", ft_split("ACDBCDBEADGBDAG", 'B'));
+//	printf("%s\n", ft_split("ACDBCDE", '\0')[0]);
+//	printf("%p\n", ft_split("", 'B')[0]);
+//	printf("%s\n", ft_split("ACDBCDE", 'T')[0]);
+//}
