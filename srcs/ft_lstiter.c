@@ -6,7 +6,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 
 	if (!lst)
 		return ;
-	temp = ((lst)->next);
+	temp = (lst);
 	while (temp)
 	{
 		f(temp->content);
@@ -14,36 +14,49 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	}
 }
 
-void ft_ptrupper(void *c)
-{
-    (int *)(c);
-	if ('a' <= *c && *c <= 'z')
-        *c -= 32;
-}
+//void print_content(void *c)
+//{
+//	printf("%s\n", (char *)c);
+//}
 
-int	main(void)
-{
-	t_list	*list1;
-	t_list	*list2;
-	t_list	*list3;
-	t_list	*list4;
-	t_list	**frontptr;
+//void lst_upper(void *c)
+//{
+//    size_t	index;
+//	char	*p;
 
-	list1 = ft_listnew(strdup("test1"));
-	list2 = ft_listnew(strdup("test2"));
-	list3 = ft_listnew(strdup("test3"));
-	list4 = ft_listnew(strdup("test4"));
-	frontptr = &list3;
-	ft_lstadd_front(frontptr, list2);
-	ft_lstadd_front(frontptr, list1);
-	ft_lstadd_back(frontptr, list4);
-	printf("%s\n", (char *)list1->content);
-	printf("%s\n", (char *)list2->content);
-	printf("%s\n", (char *)list3->content);
-	printf("%s\n", (char *)list4->content);
-	ft_lstiter(list1, ft_ptrupper);
-	printf("%s\n", (char *)list1->content);
-	printf("%s\n", (char *)list2->content);
-	printf("%s\n", (char *)list3->content);
-	printf("%s\n", (char *)list4->content);
-}
+//	index = 0;
+//	p = (char *)c;
+//	while (p[index])
+//	{
+//		if ('a' <= p[index] && p[index] <= 'z')
+//			p[index] -= 32;
+//		index++;
+//	}
+//}
+
+//int	main(void)
+//{
+//	t_list	*list1;
+//	t_list	*list2;
+//	t_list	*list3;
+//	t_list	*list4;
+//	t_list	**frontptr;
+
+//	list1 = ft_listnew(strdup("test1"));
+//	list2 = ft_listnew(strdup("test2"));
+//	list3 = ft_listnew(strdup("test3"));
+//	list4 = ft_listnew(strdup("test4"));
+//	frontptr = &list3;
+//	ft_lstadd_front(frontptr, list2);
+//	ft_lstadd_front(frontptr, list1);
+//	ft_lstadd_back(frontptr, list4);
+//	printf("%s\n", (char *)list1->content);
+//	printf("%s\n", (char *)list2->content);
+//	printf("%s\n", (char *)list3->content);
+//	printf("%s\n", (char *)list4->content);
+//	ft_lstiter(list1, lst_upper);
+//	printf("%s\n", (char *)list1->content);
+//	printf("%s\n", (char *)list2->content);
+//	printf("%s\n", (char *)list3->content);
+//	printf("%s\n", (char *)list4->content);
+//}

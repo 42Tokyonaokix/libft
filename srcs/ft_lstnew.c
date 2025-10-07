@@ -1,6 +1,6 @@
 #include "../includes/libft.h"
 
-t_list *ft_listnew(void *content)
+t_list *ft_lstnew(void *content)
 {
 	t_list *newlist;
 
@@ -16,6 +16,6 @@ t_list *ft_listnew(void *content)
 //{
 //	t_list	*list1;
 
-//	list1 = ft_listnew("ABCDE");
+//	list1 = ft_lstnew("ABCDE");
 //	printf("%s\n", (char *)list1->content);
 //}
