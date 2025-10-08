@@ -1,4 +1,4 @@
-#include "../includes/libft.h"
+#include "../libft.h"
 
 int ft_atoi(const char *nptr)
 {
@@ -6,13 +6,12 @@ int ft_atoi(const char *nptr)
     int     number;
     int     neg;
 
-    count = 0;
+    count = 0, neg = 1;
     while (nptr[count] == ' ' || (9 <=nptr[count] && nptr[count] <= 13))
         count++;
     if (nptr[count] == '+')
         count++;
-    neg = 1;
-    if (nptr[count] == '-')
+    else if (nptr[count] == '-')
     {
         neg = -1;
         count++;

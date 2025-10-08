@@ -1,25 +1,31 @@
-#include "../includes/libft.h"
+#include "../libft.h"
 
 static int ft_strs2cmp(const char *s1, const char *s2)
 {
     size_t  count;
-	size_t	len;
 
-	len = ft_strlen(s2);
-	if (len == 0)
+	if (ft_strlen(s2) == 0)
 		return(0);
     count = 0;
-    while (s1[count] && s1[count] == s2[count] && count < len - 1)
-        count++;
-    return ((unsigned char)s1[count] - (unsigned char)s2[count]);
+    while (s2[count])
+    {
+		if (s1[count] != s2[count])
+			return (1);
+		count++;
+	}
+	return (0);
 }
 
 char *ft_strnstr(const char *big,	const char *little, size_t len)
 {
-	size_t count;
+	size_t	count;
+	size_t	len_little;
 	
 	count = 0;
-	while (*big && count < len)
+	len_little = ft_strlen(little);
+	if (len_little == 0)
+		return ((char *)big);
+	while (*big && count + len_little - 1 < len)
 	{
 		if (ft_strs2cmp(big, little) == 0)
 			return ((char *)big);

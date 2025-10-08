@@ -1,4 +1,4 @@
-#include "../includes/libft.h"
+#include "../libft.h"
 
 char	*ft_strdup(const char *str)
 {
@@ -7,9 +7,7 @@ char	*ft_strdup(const char *str)
 	char	*dest;
 
 	len = ft_strlen(str);
-	if (len == 0)
-		return (NULL);
-	dest = (char *)malloc(sizeof(char) * len);
+	dest = (char *)malloc(sizeof(char) * (len + 1));
 	if (dest == NULL)
 		return (NULL);
 	count = 0;

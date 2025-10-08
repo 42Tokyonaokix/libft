@@ -1,12 +1,14 @@
-#include "../includes/libft.h"
+#include "../libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	long long int	lnb;
-	void			*ptr;
+	size_t	lnb;
+	void	*ptr;
 
 	lnb = nmemb * size;
-	if (lnb == 0)
+	if (nmemb == 0 || size == 0)
+		return (malloc(1));
+	if (SIZE_MAX / nmemb < size	||(int)nmemb < 0 || (int)size < 0)
 		return (NULL);
 	ptr = malloc(lnb);
 	if (ptr == NULL)

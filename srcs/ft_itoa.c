@@ -1,6 +1,7 @@
-#include "../includes/libft.h"
+#include "../libft.h"
 
 static char	*digit_allocate(int n, char *itoa, size_t index);
+static char	*ft_strcpy(char *dest, const char *src);
 
 char	*ft_itoa(int n)
 {
@@ -30,9 +31,9 @@ char	*ft_itoa(int n)
 static char	*digit_allocate(int n, char *itoa, size_t index)
 {
 	if (n == INT_MIN)
-		return("-2147483648\0");
+		return(ft_strcpy(itoa, "-2147483648"));
 	if (n == 0)
-		return("0");
+		return(ft_strcpy(itoa, "0"));
 	if (n < 0)
 	{
 		itoa[0] = '-';
@@ -47,6 +48,22 @@ static char	*digit_allocate(int n, char *itoa, size_t index)
 	}
 	return (itoa);
 }
+
+static char	*ft_strcpy(char *dest, const char *src)
+{
+	size_t	index;
+
+	index = 0;
+	while (src[index])
+	{
+		dest[index] = src[index];
+		index++;
+	}
+	dest[index] = '\0';
+	return (dest);
+}
+
+
 //int main(void)
 //{
 //	printf("%s\n", ft_itoa(10));

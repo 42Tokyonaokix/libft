@@ -1,4 +1,4 @@
-#include "../includes/libft.h"
+#include "../libft.h"
 
 static t_list	*ft_lstmap2(t_list *lst, void *(*f)(void *), void (*del)(void *), t_list *newlist);
 
@@ -25,8 +25,7 @@ static t_list	*ft_lstmap2(t_list *lst, void *(*f)(void *), void (*del)(void *), 
 {
 	t_list	*addlist;
 	void	*addcontent;
-	
-	lst = lst->next;	
+		
 	while (lst)
 	{
 		addcontent = f(lst->content);

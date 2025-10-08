@@ -1,4 +1,4 @@
-#include "../includes/libft.h"
+#include "../libft.h"
 
 void *ft_memchr(const void *b, int c, size_t len)
 {
@@ -9,7 +9,7 @@ void *ft_memchr(const void *b, int c, size_t len)
 	count = 0;
 	while (count < len)
 	{
-		if (p[count] == c)
+		if (p[count] == (unsigned char)c)
 			return((void *)&p[count]);
 		count++;
 	}

@@ -65,4 +65,7 @@ fclean:
 re:
 	fclan all
 
+bonus: 
+	$(MAKE) all
+
 .PHONEY: all clean fclean re

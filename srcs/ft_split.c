@@ -1,4 +1,4 @@
-#include "../includes/libft.h"
+#include "../libft.h"
 
 static size_t	count_words(char const *s, char c);
 static char	*ft_strndup(const char *str, size_t n);
@@ -26,8 +26,10 @@ static char	**allocate_char(const char *s, char **splitted, char c)
 	index = 0;
 	while (*s)
 	{
-		while (*s && *s == c)
+		while (*s == c)
 			s++;
+		if (!*s)
+			break ;
 		char_count = 0;
 		while (*(s + char_count) && *(s + char_count) != c)
 			char_count++;
@@ -39,8 +41,7 @@ static char	**allocate_char(const char *s, char **splitted, char c)
 		}
 		index++, s += char_count;
 	}
-	splitted[index] = (NULL);
-	return (splitted);
+	return (splitted[index] = NULL, splitted);
 }
 
 static size_t	count_words(char const *s, char c)
@@ -54,7 +55,7 @@ static size_t	count_words(char const *s, char c)
 	{
 		while (s[index] && s[index] == c)
 			index++;
-		if (s[index] != c)
+		if (s[index] != c && s[index])
 			index++, count++;
 		while (s[index] && s[index] != c)
 			index++;
@@ -90,6 +91,15 @@ static void split_free(char **splitted, size_t index)
 	}
 	free(splitted);
 }
+
+//int main(void)
+//{
+
+//	char * * tab = ft_split("  tripouille  42  ", ' ');
+//	printf("%s\n", tab[0]);
+//	printf("%s\n", tab[1]);
+//	printf("%p\n", tab[2]);
+//}
 
 //int main(void)
 //{

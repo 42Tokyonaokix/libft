@@ -1,5 +1,4 @@
-#include "../includes/libft.h"
-
+#include "../libft.h"
 static bool is_set(char const c, char const *set);
 static size_t	start_len(char const *s1, char const *set);
 static size_t	end_len(char const *s1, char const *set);
